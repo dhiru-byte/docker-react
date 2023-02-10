@@ -1,0 +1,9 @@
+version: '3'
+services:
+  redis-server: 
+    image: 'redis'
+  node-app:
+    # image: 'nodejs-alipine:v1'
+    build: .
+    ports:
+      - "9000:9000"
