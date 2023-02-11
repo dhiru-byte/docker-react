@@ -6,4 +6,4 @@ before_install:
   - docker build -t dhirendrabyte/react-node_app -f Dockerfile .
 
 script:
-  - docker run dhirendrabyte/react_app npm run test -- --coverage  
+  - docker run dhirendrabyte/react-node_app npm run test -- --coverage  
