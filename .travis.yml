@@ -8,3 +8,16 @@ before_install:
 script:
   - docker run -d dhirendrabyte/react-app npm run test -- --coverage
   - docker ps
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "docker-travis"
+  env: "Dockertravis-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-173402306626"
+  bucket_path: "docker-travis"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
