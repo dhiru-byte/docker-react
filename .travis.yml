@@ -3,7 +3,7 @@ services:
   - docker: 
 
 before_install:
-  - docker build -t dhirendrabyte/react-app -f Dockerfile.node .
+  - docker build -t dhirendrabyte/react-app -f Dockerfile.dev .
 
 script:
   - docker run -d dhirendrabyte/react-app npm run test -- --coverage
@@ -12,10 +12,10 @@ script:
 deploy:
   provider: elasticbeanstalk
   region: "ap-south-1"
-  app: "docker-travis1"
-  env: "Dockertravis1-env"
+  app: "docker-travis"
+  env: "Dockertravis-env"
   bucket_name: "elasticbeanstalk-ap-south-1-173402306626"
-  bucket_path: "docker-travis1"
+  bucket_path: "docker-travis"
   on:
     branch: main
   access_key_id: "$AWS_ACCESS_KEY"
